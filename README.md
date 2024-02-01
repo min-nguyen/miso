@@ -375,10 +375,6 @@ viewModel x = div_ [] [
 
 It is possible to build `miso` applications with `ghcid`, `jsaddle` that allow live reloading of your application in reponse to changes in application code. See the [README](https://github.com/dmjio/miso/blob/master/sample-app-jsaddle/README.md) in the `sample-app-jsaddle` folder for more information.
 
-## Docker
-
-Developing miso applications inside a Docker container is supported (allows applications to be built on Windows). See the [README](https://github.com/dmjio/miso/blob/master/docker/README.md) in the `docker` folder for more information.
-
 ## Building examples
 
 The easiest way to build the examples is with the [`nix`](https://nixos.org/nix/) package manager
@@ -386,10 +382,10 @@ The easiest way to build the examples is with the [`nix`](https://nixos.org/nix/
 git clone https://github.com/dmjio/miso && cd miso && nix-build --arg examples true
 ```
 
-This will build all examples and documentation into a folder named `result`
+This will build all examples and documentation into a folder named `result-2`
 ```
 ➜  miso git:(master) ✗ tree -d ./result/bin
-./result/bin
+./result-2/bin
 |-- canvas2d.jsexe
 |-- compose-update.jsexe
 |-- file-reader.jsexe
@@ -409,7 +405,7 @@ This will build all examples and documentation into a folder named `result`
 To see examples, we recommend hosting them with a webserver
 
 ```
-cd result/bin/todo-mvc.jsexe && nix-shell -p python --run 'python -m SimpleHTTPServer'
+cd result/bin/todo-mvc.jsexe && nix-shell -p python3 --run 'python3 -m http.server'
 Serving HTTP on 0.0.0.0 port 8000 ...
 ```
 
@@ -447,58 +443,3 @@ By default `miso` uses a known-to-work, pinned version of [`nixpkgs`](https://gi
 ```bash
 cachix use miso-haskell
 ```
-
-## Benchmarks
-
-[According to benchmarks](https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html), `miso` is among the fastest functional programming web frameworks, second only to [Elm](http://elm-lang.org).
-
-<a target="_blank" href="https://rawgit.com/krausest/js-framework-benchmark/master/webdriver-ts-results/table.html"><img src="https://cdn-images-1.medium.com/max/1600/1*6EjJTf1mhlTxd4QWsygCwA.png" width="500" height="600" /></a>
-
-## Maintainers
-
-[@dmjio](https://github.com/dmjio)
-
-## Commercial Users
-  - [Polimorphic](https://www.polimorphic.com)
-  - [LumiGuide](https://lumi.guide/en/)
-  - [Clovyr](https://clovyr.io)
-
-## Contributing
-
-Feel free to dive in! [Open an issue](https://github.com/dmjio/miso/issues/new) or submit [PRs](https://github.com/dmjio/miso/pulls).
-
-See [CONTRIBUTING](https://github.com/dmjio/miso/blob/master/CONTRIBUTING.md) for more info.
-
-## Contributors
-
-### Code Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/dmjio/miso/graphs/contributors"><img src="https://opencollective.com/miso/contributors.svg?width=890&button=false" /></a>
-
-### Financial Contributors
-
-Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/miso/contribute)]
-
-#### Individuals
-
-<a href="https://opencollective.com/miso"><img src="https://opencollective.com/miso/individuals.svg?width=890"></a>
-
-#### Organizations
-
-Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/miso/contribute)]
-
-<a href="https://opencollective.com/miso/organization/0/website"><img src="https://opencollective.com/miso/organization/0/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/1/website"><img src="https://opencollective.com/miso/organization/1/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/2/website"><img src="https://opencollective.com/miso/organization/2/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/3/website"><img src="https://opencollective.com/miso/organization/3/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/4/website"><img src="https://opencollective.com/miso/organization/4/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/5/website"><img src="https://opencollective.com/miso/organization/5/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/6/website"><img src="https://opencollective.com/miso/organization/6/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/7/website"><img src="https://opencollective.com/miso/organization/7/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/8/website"><img src="https://opencollective.com/miso/organization/8/avatar.svg"></a>
-<a href="https://opencollective.com/miso/organization/9/website"><img src="https://opencollective.com/miso/organization/9/avatar.svg"></a>
-
-## License
-
-[BSD3](LICENSE) © David Johnson
